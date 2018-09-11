@@ -15,6 +15,7 @@ CREATE DATABASE has_many_blogs WITH OWNER has_many_user;
 -- Create the necessary FKs needed to relate the tables according to the relationship table below 
 -- Run the provided 'scripts/blog_data.sql'
 
+-- Users Table
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY, 
@@ -25,6 +26,7 @@ CREATE TABLE users (
     updated_at TIMESTAMP NOT NULL DEFAULT now() 
 );
 
+-- Posts Table
 DROP TABLE IF EXISTS posts;
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY, 
@@ -35,6 +37,7 @@ CREATE TABLE posts (
     updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
+-- Comments Table
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY, 
@@ -43,7 +46,3 @@ CREATE TABLE comments (
     updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
--- DROP TABLE IF EXISTS relationship_table; 
--- CREATE TABLE relationship_table (
---     users 
--- );

@@ -1,6 +1,8 @@
 -- ***** QUERIES ACROSS MULTIPLE TABLES ***** --
 
 -- Create a query to get all fields from the 'users' table
+SELECT * 
+    FROM users;
 
 -- Create a query to get all fields from the 'posts' table where the 'user_id' is 100
 
@@ -29,4 +31,4 @@
 
 -- Count how many comments have been written on posts that have been created after July 14, 2015 (should have on result, the value of the count should be 27)
 
--- Find all users who comemnt about 'programming' (should have 336 results)
+-- Find all users who comemnt about 'programming' (should have 336 results)                                                           
