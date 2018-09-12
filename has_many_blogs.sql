@@ -34,7 +34,7 @@ CREATE TABLE posts (
     url VARCHAR (510) NULL DEFAULT NULL, 
     content TEXT NULL DEFAULT NULL, 
     created_at TIMESTAMP NOT NULL DEFAULT now(),
-    updated_at TIMESTAMP NOT NULL DEFAULT now()
+    updated_at TIMESTAMP NOT NULL DEFAULT now(),
 );
 
 -- Comments Table
@@ -45,4 +45,22 @@ CREATE TABLE comments (
     created_at TIMESTAMP NOT NULL DEFAULT now(), 
     updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
+
+ALTER TABLE posts 
+    ADD user_id INTEGER NOT NULL; 
+
+ALTER TABLE posts
+    ADD FOREIGN KEY (user_id) REFERENCES users(id);
+
+ALTER TABLE comments   
+    ADD user_id INTEGER NOT NULL;
+
+ALTER TABLE comments 
+    ADD FOREIGN KEY (user_id) REFERENCES users(id);
+
+ALTER TABLE comments   
+    ADD posts_id INTEGER NOT NULL;
+
+ALTER TABLE comments 
+    ADD FOREIGN KEY (posts_id) REFERENCES posts(id);
 
