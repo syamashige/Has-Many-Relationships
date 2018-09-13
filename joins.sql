@@ -80,5 +80,13 @@ SELECT users.first_name AS post_author_first_name, users.last_name AS post_autho
 -- ***** EXTRA ***** -- 
 
 -- Count how many comments have been written on posts that have been created after July 14, 2015 (should have on result, the value of the count should be 27)
+SELECT COUNT (*)
+  FROM comments
+  JOIN posts ON comments.posts_id = posts.id
+  WHERE posts.created_at > 'July 14, 2015';
 
--- Find all users who comemnt about 'programming' (should have 336 results)                                                           
+-- Find all users who comment about 'programming' (should have 336 results)                                            
+SELECT COUNT (users.*) 
+  FROM comments 
+  JOIN users ON comments.user_id = users.id 
+  WHERE comments.body LIKE '%programming%';
